@@ -1,0 +1,26 @@
+{
+    "name": "jayc89/slim-handlebars",
+    "type": "library",
+    "description": "Handlebars View Parser package for the Slim Framework",
+    "keywords": ["templating", "extensions", "slimphp", "handlebars"],
+    "homepage": "http://github.com/jayc89/Slim-Handlebars",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jamie Cressey",
+            "email": "jamiecressey89@gmail.com",
+            "homepage": "https://github.com/jayc89"
+        }
+    ],
+    "require": {
+        "slim/slim": ">=2.4.0",
+        "php": ">=5.3.0",
+        "voodoophp/handlebars": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Slim\\Handlebars": ""
+        }
+    },
+    "target-dir": "Slim/Handlebars"
+}
