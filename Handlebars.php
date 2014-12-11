@@ -70,12 +70,17 @@ class Handlebars extends \Slim\View
     {
         if (!$this->parserInstance) {
 
-            $partialsLoader = new \Handlebars\Loader\FilesystemLoader($this->getTemplatesDirectory(),
+            $templatesLoader = new \Handlebars\Loader\FilesystemLoader($this->getTemplatesDirectory(),
                 [
                     "extension" => "html"
                 ]
             );
-            $this->parserInstance = new \Handlebars\Handlebars([ "loader" => $partialsLoader, "partials_loader" => $partialsLoader ]);
+            $partialsLoader = new \Handlebars\Loader\FilesystemLoader($this->getTemplatesDirectory()."/partials",
+                [
+                    "extension" => "html"
+                ]
+            );
+            $this->parserInstance = new \Handlebars\Handlebars([ "loader" => $templatesLoader, "partials_loader" => $partialsLoader ]);
         }
 
         return $this->parserInstance;
