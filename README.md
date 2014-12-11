@@ -15,7 +15,7 @@ Create a composer.json file in your project root:
 ```json
 {
     "require": {
-        "jayc89/slim-handlebars": "0.0.*"
+        "jayc89/slim-handlebars": "dev-master"
     }
 }
 ```
