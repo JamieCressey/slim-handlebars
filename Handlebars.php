@@ -44,6 +44,30 @@ class Handlebars extends \Slim\View
      */
     private $parserInstance = null;
 
+    private $allowedOptions = array(
+
+				    'templateExtension',
+				    'partialsDirectory'
+
+				    );
+
+    /**
+     * @param array [$options]
+     * @return void
+     */
+    public function __construct($options=array())
+    {
+
+      parent::__construct();
+
+      foreach(array_intersect_key($options, array_flip($this->allowedOptions)) as $key => $value) {
+
+	$this->$key = $value;
+
+      }
+
+    }
+
     /**
      * Render Handlebars Template
      *
@@ -70,17 +94,33 @@ class Handlebars extends \Slim\View
     {
         if (!$this->parserInstance) {
 
-            $templatesLoader = new \Handlebars\Loader\FilesystemLoader($this->getTemplatesDirectory(),
-                [
-                    "extension" => "html"
-                ]
-            );
-            $partialsLoader = new \Handlebars\Loader\FilesystemLoader($this->getTemplatesDirectory()."/partials",
-                [
-                    "extension" => "html"
-                ]
-            );
-            $this->parserInstance = new \Handlebars\Handlebars([ "loader" => $templatesLoader, "partials_loader" => $partialsLoader ]);
+	  $partialsDirectory = $this->getTemplatesDirectory()."/partials";
+	  $options = array();
+
+	  if(isset($this->templateExtension)) {
+
+	    $options['extension'] = $this->templateExtension;
+	    
+	  }
+
+	  if(isset($this->partialsDirectory)) {
+
+	    $partialsDirectory = $this->partialsDirectory;
+
+	  }
+
+	  if(!is_dir(rtrim(realpath($partialsDirectory), '/'))) {
+
+	    throw new \RuntimeException("Partials directory '{$partialsDirectory}' is not a valid directory.");
+
+	  }
+
+
+	  $templatesLoader = new \Handlebars\Loader\FilesystemLoader($this->getTemplatesDirectory(), $options);
+	  $partialsLoader = new \Handlebars\Loader\FilesystemLoader($partialsDirectory, $options);
+
+	  $this->parserInstance = new \Handlebars\Handlebars([ "loader" => $templatesLoader, "partials_loader" => $partialsLoader ]);
+
         }
 
         return $this->parserInstance;
