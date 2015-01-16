@@ -46,7 +46,12 @@ $view->parserOptions = array(
 );
 ```
 
-Templates (suffixed with .html) are assumed to be located within <doc root>/templates. An optional sub-directory of partials (<doc root>/templates/partials) can also be used.
+Templates (suffixed with .handlebars) are assumed to be located within Slim's template directory (&lt;doc root&gt;/templates, by default). Partials are picked up from &lt;template directory&gt;/partials.
+
+Constructor takes an array as a parameter. The following properties are supported:
+
+* partialsDirectory
+* templateExtensions
 
 To render the templates within your routes:
     
