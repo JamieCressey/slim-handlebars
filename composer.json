@@ -21,9 +21,8 @@
         "justblackbird/handlebars.php-helpers": "A set of helpers for Handlebars.php template engine."
     },
     "autoload": {
-        "psr-0": {
-            "Slim\\Handlebars": ""
+        "psr-4": {
+            "Slim\\Handlebars\\": "src/"
         }
-    },
-    "target-dir": "Slim/Handlebars"
+    }
 }
