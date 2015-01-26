@@ -14,7 +14,7 @@
     ],
     "require": {
         "slim/slim": ">=2.4.0",
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "xamin/handlebars.php": "0.10.0"
     },
     "suggest": {
