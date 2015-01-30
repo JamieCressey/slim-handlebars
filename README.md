@@ -1,5 +1,9 @@
 # Slim Handlebars
 
+[![Latest Stable Version](https://poser.pugx.org/jayc89/slim-handlebars/v/stable.png)](https://packagist.org/packages/jayc89/slim-handlebars)
+[![Total Downloads](https://poser.pugx.org/jayc89/slim-handlebars/downloads.png)](https://packagist.org/packages/jayc89/slim-handlebars)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jayc89/slim-handlebars/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 This repository contains a custom View class for Handlebars (https://github.com/mardix/Handlebars). 
 You can use the custom View class by either requiring the appropriate class in your 
 Slim Framework bootstrap file and initialize your Slim application using an instance of 
